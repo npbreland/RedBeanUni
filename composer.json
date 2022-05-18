@@ -1,0 +1,17 @@
+{
+    "name": "npbreland/RedBeanUni",
+    "description": "Test of RedBeanPHP ORM",
+    "license": "",
+    "authors": [
+        {
+            "name": "Nick Breland",
+            "email": "npbreland@tutanota.com"
+        }
+    ],
+    "require-dev": {
+        "fakerphp/faker": "^1.19",
+        "phpunit/phpunit": "^9.5"
+    },
+    "require": {
+    }
+}
