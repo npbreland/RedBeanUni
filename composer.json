@@ -1,5 +1,5 @@
 {
-    "name": "npbreland/RedBeanUni",
+    "name": "npbreland/redbeanuni",
     "description": "Test of RedBeanPHP ORM",
     "license": "",
     "authors": [
@@ -13,5 +13,6 @@
         "phpunit/phpunit": "^9.5"
     },
     "require": {
+        "phroute/phroute": "^2.2"
     }
 }

@@ -8,10 +8,10 @@ require_once $_ENV['COMPOSER_PATH'] . '/autoload.php';
  * https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-4-autoloader-examples.md
  */
 spl_autoload_register(function ($class) {
-    $prefix = 'NPBreland\\PHPUni\\RedBeanUni\\';
+    $prefix = 'RedBeanUni\\Model\\';
 
     // base directory for the namespace prefix
-    $base_dir = __DIR__ . '/RedBeanUni/';
+    $base_dir = __DIR__ . '/RedBeanUni/models/';
 
     // does the class use the namespace prefix?
     $len = strlen($prefix);

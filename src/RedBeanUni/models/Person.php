@@ -1,9 +1,8 @@
 <?php
-namespace NPBreland\PHPUni\RedBeanUni;
+namespace RedBeanUni\Model;
 
-class Model_Person extends \RedBeanPHP\SimpleModel
+class Person extends \RedBeanPHP\SimpleModel
 {
-
     public function getListName(): string
     {
         return "$this->last_name, $this->first_name";

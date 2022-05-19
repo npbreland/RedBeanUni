@@ -1,38 +1,38 @@
 <?php
-namespace NPBreland\PHPUni\RedBeanUni;
+namespace RedBeanUni\Model;
 
-class Model_Student extends Model_Person
+class Student extends Person
 {
-    use ClassTrait;
+    use OfferingTrait;
 
     public function update(): void
     {
     }
 
-    public function enrollInClass(Model_Class $c2): void
+    public function enrollInOffering(Offering $o2): void
     {
-        if (!$this->hasPassedPrerequisites($c2->course->box())) {
+        if (!$this->hasPassedPrerequisites($o2->course->box())) {
             $err_msg = <<<MSG
 Student has not passed all of the prerequisite courses.
 MSG;
             throw new \Exception($err_msg);
         }
 
-        $classList = array_values($this->sharedClassList);
-        for($i = 0; $i < count($classList); $i++) {
-            $c1 = $classList[$i]->box();
-            if ($this->classesOverlap($c1, $c2)) {
+        $offering_list = array_values($this->sharedOfferingList);
+        for($i = 0; $i < count($offering_list); $i++) {
+            $o1 = $offering_list[$i]->box();
+            if ($this->offeringsOverlap($o1, $o2)) {
                 $err_msg = <<<MSG
-Cannot enroll in class because it would overlap with another class the student
-is taking.
+Cannot enroll in offering because it would overlap with another offering the 
+student is taking.
 MSG;
                 throw new \Exception($err_msg);
             }
         }
-        $this->sharedClassList[] = $c2->unbox();
+        $this->bean->sharedOfferingList[] = $o2->unbox();
     }
 
-    private function hasPassedPrerequisites(Model_Course $course): bool
+    private function hasPassedPrerequisites(Course $course): bool
     {
         foreach ($course->sharedPrerequisiteList as $prereq) {
 
@@ -55,19 +55,19 @@ MSG;
         return true;
     }
 
-    public function withdrawFromClass(Model_Class $class): void
+    public function withdrawFromOffering(Offering $offering): void
     {
-        if (!$this->isInClass($class)) {
-            throw new \Exception('Student must be enrolled in the class.');
+        if (!$this->isInOffering($offering)) {
+            throw new \Exception('Student must be enrolled in the offering.');
         }
 
-        unset($this->bean->sharedClassList[$class->id]);
+        unset($this->bean->sharedOfferingList[$offering->id]);
     }
 
-    private function isInClass(Model_Class $class): bool
+    private function isInOffering(Offering $offering): bool
     {
-        foreach ($this->sharedClassList as $student_class) {
-            if ($student_class->equals($class->unbox())) {
+        foreach ($this->sharedOfferingList as $student_offering) {
+            if ($student_offering->equals($offering->unbox())) {
                 return true;
             }
         }
@@ -75,10 +75,10 @@ MSG;
         return false;
     }
 
-    public function addGrade(Model_Grade $grade)
+    public function addGrade(Grade $grade)
     {
-        if (!$this->isInClass($grade->class->box())) {
-            throw new \Exception('Student must be enrolled in the class.');
+        if (!$this->isInOffering($grade->offering->box())) {
+            throw new \Exception('Student must be enrolled in the offering.');
         }
         if (!is_int($grade->score)) {
             throw new \Exception('Grade must be an integer.');

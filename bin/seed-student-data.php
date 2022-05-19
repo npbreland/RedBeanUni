@@ -1,5 +1,6 @@
 <?php
 require_once $_ENV['CONFIG_PATH'] . '/config.php';
+require_once $_ENV['COMPOSER_PATH'] . '/autoload.php';
 
 $faker = Faker\Factory::create();
 

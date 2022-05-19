@@ -1,8 +1,7 @@
 <?php
+namespace RedBeanUni\Model;
 
-namespace NPBreland\PHPUni\RedBeanUni;
-
-class Model_Term extends \RedBeanPHP\SimpleModel
+class Term extends \RedBeanPHP\SimpleModel
 {
 
     public function update(): void

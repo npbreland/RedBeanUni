@@ -1,7 +1,7 @@
 <?php
-namespace NPBreland\PHPUni\RedBeanUni;
+namespace RedBeanUni;
 
-function getCurrentTerm(): ?Model_Term
+function getCurrentTerm(): ?Model\Term
 {
     $now = new \DateTime();
     return \R::findOne(
@@ -11,7 +11,7 @@ function getCurrentTerm(): ?Model_Term
     );
 }
 
-function getNextTerm(): ?Model_Term
+function getNextTerm(): ?Model\Term
 {
     $current_term = getCurrentTerm();
     return \R::findOne(

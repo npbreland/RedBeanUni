@@ -1,6 +1,7 @@
 <?php
 require_once $_ENV['COMPOSER_PATH'] . '/redbean/rb-mysql.php';
 
+define('REDBEAN_MODEL_PREFIX', '\\RedBeanUni\\Model\\');
 define('MYSQL_TIME_FMT', 'H:i:s');
 define('PASSING_GRADE', 70);
 define('DAY_MAP', [
