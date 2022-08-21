@@ -1,5 +1,13 @@
 <?php
-require_once $_ENV['COMPOSER_PATH'] . '/redbean/rb-mysql.php';
+
+// Report all PHP errors
+error_reporting(E_ALL);
+
+require_once 'vendor/autoload.php';
+require_once 'src/autoload.php';
+
+\RedBeanPHP\R::setup();
+//\RedBeanPHP\R::fancyDebug(true);
 
 define('REDBEAN_MODEL_PREFIX', '\\RedBeanUni\\Model\\');
 define('MYSQL_TIME_FMT', 'H:i:s');
@@ -34,17 +42,3 @@ define('DAY_MAP', [
         'short' => 'Sat',
     ]
 ]);
-
-$host = $_ENV['DB_HOST'];
-$name = $_ENV['DB_NAME'];
-$user = $_ENV['DB_USER'];
-$pass = $_ENV['DB_PASS'];
-
-R::setup("mysql:host=$host;dbname=$name", $user, $pass);
-
-/* try{ */
-/*     $db = new PDO("mysql:host=$host;dbname=$pass", $user, $pass); */
-/* } catch(PDOException $e){ */
-/*     echo $e->getmessage(); */
-/* } */
-//R::fancyDebug( TRUE );

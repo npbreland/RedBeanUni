@@ -1,6 +1,8 @@
 <?php
 namespace RedBeanUni\Model;
 
+use \RedBeanPHP\R as R;
+
 class Term extends \RedBeanPHP\SimpleModel
 {
 
@@ -24,7 +26,7 @@ MSG;
 OR (end_date > ? AND end_date < ?)
 SQL;
         return !is_null(
-            \R::findOne('term', $sql, [
+            R::findOne('term', $sql, [
                 $this->start_date, $this->end_date,
                 $this->start_date, $this->end_date
             ])

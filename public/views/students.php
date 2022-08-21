@@ -2,12 +2,16 @@
 
 $students = R::findAll('student');
 
+print_r( R::dump($students) );
+
+
+
 ?>
 
 <h1>Students</h1>
 <ul>
 <?php foreach($students as $student): ?>
-    <li><?= $student->getListName() ?></li>
+    <li><?= $student->last_name ?></li>
 <?php endforeach; ?>
 </ul>
 

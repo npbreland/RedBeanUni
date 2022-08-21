@@ -1,4 +1,4 @@
-<?php require_once $_SERVER['DOCUMENT_ROOT'] . '/rb-config.php'; ?>
+<?php require_once $_ENV['CONFIG_PATH'] . '/config.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

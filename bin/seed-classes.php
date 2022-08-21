@@ -1,12 +1,7 @@
 <?php
+require_once '../bootstrap.php';
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL); 
-
-require_once $_ENV['CONFIG_PATH'] . '/config.php';
-
-R::wipe('class');
+use \RedBeanPHP\R as R;
 
 $c1 = R::dispense('course');
 $c1->name = 'Introduction to American Literature';
@@ -17,7 +12,7 @@ $c2->name = 'Introduction to British Literature';
 $c3 = R::dispense('course');
 $c3->name = 'Introduction to Anthropology';
 
-$t1 = \R::load('term', 1);
+$t1 = R::load('term', 1);
 
 $i1 = R::load('instructor', 1);
 $cl1 = R::dispense('offering');

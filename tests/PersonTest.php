@@ -1,6 +1,7 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
+use \RedBeanPHP\R as R;
 
 final class PersonTest extends TestCase
 {
@@ -10,7 +11,7 @@ final class PersonTest extends TestCase
         $student = R::dispense('student');
         $student->first_name = 'Dolly';
         $student->last_name = 'Parton';
-        $this->assertEquals($student->getListName(), 'Parton, Dolly');
+        $this->assertEquals('Parton, Dolly', $student->getListName());
     }
 
     public function testIsBirthday(): void

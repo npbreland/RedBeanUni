@@ -1,6 +1,7 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
+use \RedBeanPHP\R as R;
 
 final class StudentTest extends TestCase
 {
@@ -16,6 +17,7 @@ final class StudentTest extends TestCase
         $grade->class = $class;
 
         $student->addGrade($grade->box());
+
         $this->assertTrue(true);
     }
 

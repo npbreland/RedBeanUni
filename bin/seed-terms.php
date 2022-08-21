@@ -1,7 +1,8 @@
 <?php
 
-require_once $_ENV['CONFIG_PATH'] . '/config.php';
-require_once $_ENV['SRC_PATH'] . '/autoload.php';
+require_once '../bootstrap.php';
+
+use \RedBeanPHP\R as R;
 
 define('TERM_DATES_RELATIVE', [
     'spring' => [

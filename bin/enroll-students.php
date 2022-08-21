@@ -1,6 +1,7 @@
 <?php
-require_once $_ENV['CONFIG_PATH'] . '/config.php';
+require_once '../bootstrap.php';
 
+use \RedBeanPHP\R as R;
 
 $faker = Faker\Factory::create();
 

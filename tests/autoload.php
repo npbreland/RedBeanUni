@@ -1,7 +1,4 @@
 <?php
-// Source autoloader
-require_once dirname(__FILE__, 2) . '/src/autoload.php';
-
 /**
  * PSR-4 example
  * https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-4-autoloader-examples.md

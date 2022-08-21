@@ -1,6 +1,6 @@
 <?php
 
-require $_SERVER['DOCUMENT_ROOT'] . '/rb-config.php';
+require $_ENV['CONFIG_PATH'] . '/config.php';
 
 $student_id = $_POST['student'];
 $course_id = $_POST['course'];
