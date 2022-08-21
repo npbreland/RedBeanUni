@@ -4,11 +4,16 @@ namespace RedBeanUni\Controller;
 
 use RedBeanPHP\R as R;
 
-class Registrations
+class Registrations extends Controller
 {
+    public function __construct()
+    {
+        $this->type = 'registration';
+    }
+
     public function read($id)
     {
-        $reg = R::load( 'registration', $id );
+        $reg = $this->loadBean($id);
 
         echo json_encode([
             "id" => $reg->id,
@@ -35,7 +40,7 @@ class Registrations
 
     public function delete($id)
     {
-        $reg = R::load( 'registration', $id );
+        $reg = $this->loadBean($id);
         R::trash( $reg );
     }
 }

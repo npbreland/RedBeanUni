@@ -15,6 +15,14 @@ class Courses extends Controller
     {
         $name = $data['name'];
         $course->name = $name;
+
+        if ($data['prereqs']) {
+            foreach ($data['prereqs'] as $prereq) {
+                $prereq_bean = R::load( 'course', $prereq['id'] );
+                $course->ownCourseList[] = $prereq_bean;
+            }
+        }
+
         return $course;
     }
 

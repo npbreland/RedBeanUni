@@ -41,6 +41,7 @@ class Students extends Controller
             "last_name" => $student->last_name,
             "date_of_birth" => $student->date_of_birth,
             "GPA" => $student->getGPA(),
+            // TODO: Add attendance record
         ]);
     }
 
